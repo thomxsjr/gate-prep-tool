@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------------------
+# Durability policy (see docs/DURABILITY.md)
+#
+#   IGNORED  : the SQLite binary and its WAL sidecars, local backups
+#   COMMITTED: data/journal/*.jsonl  (append-only write journal)
+#              data/export/*.json    (canonical full exports)
+#
+# The database is a derived artifact. The journal and the exports are the
+# asset. Never invert this.
+# ---------------------------------------------------------------------------
+
+gate.db
+gate.db-wal
+gate.db-shm
+*.db
+*.db-wal
+*.db-shm
+
+data/backups/
+
+node_modules/
+dist/
+.vite/
+coverage/
+
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example
+
+# Locally-owned PDFs referenced by questions.local_pdf_path are never committed.
+data/pdf/

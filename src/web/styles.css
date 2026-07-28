@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+/* Self-hosted. No CDN, no runtime fetch — the app has to work offline. */
+@import '@fontsource/archivo/400.css';
+@import '@fontsource/archivo/500.css';
+@import '@fontsource/archivo/600.css';
+@import '@fontsource/spline-sans-mono/400.css';
+@import '@fontsource/spline-sans-mono/500.css';
+@import '@fontsource/spline-sans-mono/700.css';
+
+/* ===========================================================================
+   Design tokens — statistical process control.
+   A process emits defects; the job is to drive the defect rate to zero and
+   prove it. Control charts, Pareto ordering, in-control vs out-of-control.
+
+   ONE hue. `--procedural` means "this was a process failure" and appears
+   nowhere else in the application, ever. Rung progress is rendered in INK,
+   not green, so there is no red/green pair and no colour-blindness failure.
+   When the red is gone from the screen, the work is done.
+   =========================================================================== */
+@theme {
+  --color-ground: #ebede8;      /* drafting vellum, cool grey-green */
+  --color-panel: #f7f8f5;       /* raised surface */
+  --color-ink: #1a1d1c;         /* type, and filled rungs */
+  --color-ink-muted: #8a908a;   /* labels, axes, scales */
+  --color-rule: #c7cbc4;        /* hairlines, gridlines */
+  --color-procedural: #c0203a;  /* THE colour. Reserved. */
+
+  --font-ui: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-data: 'Spline Sans Mono', ui-monospace, 'SF Mono', monospace;
+
+  --radius-panel: 2px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  /* Dense instrument: small type is the default, not an exception. */
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Numbers are the content. They must not jitter between renders. */
+.num,
+input[type='number'],
+table td,
+table th {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'zero' 1;
+}
+
+/* Quality floor. Not announced, just present. */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

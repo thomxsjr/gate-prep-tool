@@ -1,0 +1,273 @@
+{
+  "_comment": [
+    "Seed for the `config` table. Everything the app treats as a fact lives here.",
+    "Editing a value in the UI writes to the DB; this file is the initial state and",
+    "the reference for `npm run db:reset`.",
+    "",
+    "Every group carrying `_verified_against_brochure: false` shows a standing",
+    "banner in the UI. Clear it only after checking the official GATE 2027",
+    "brochure — not from memory."
+  ],
+
+  "exam": {
+    "_verified_against_brochure": false,
+    "name": "GATE DA",
+    "full_name": "Data Science & Artificial Intelligence",
+    "organising_institute": "IIT Madras",
+    "year": 2027,
+    "exam_dates": [
+      "2027-02-06",
+      "2027-02-07",
+      "2027-02-13",
+      "2027-02-14",
+      "2027-02-20",
+      "2027-02-21"
+    ],
+    "session": { "name": "Forenoon", "start": "09:30", "end": "12:30" }
+  },
+
+  "registration": {
+    "_verified_against_brochure": false,
+    "_note": "Highest-consequence dates in the app. Alarm state until completed.",
+    "opens": "2026-08-14",
+    "regular_close": "2026-09-21",
+    "late_fee_close": "2026-09-30",
+    "completed": false,
+    "completed_at": null
+  },
+
+  "marking": {
+    "_verified_against_brochure": false,
+    "_note": "MCQ penalty is held as an exact rational. See src/domain/marking.ts.",
+    "total_questions": 65,
+    "total_marks": 100,
+    "duration_minutes": 180,
+    "section_marks": { "GA": 15, "SUBJECT": 85 },
+    "mcq": {
+      "negative": true,
+      "penalty_numerator": 1,
+      "penalty_denominator": 3,
+      "partial_credit": false
+    },
+    "msq": { "negative": false, "partial_credit": false },
+    "nat": { "negative": false, "partial_credit": false },
+    "time_budget_seconds": { "1": 90, "2": 180 },
+    "hard_flag_multiplier": 2
+  },
+
+  "targets": {
+    "baseline_score": 53.0,
+    "target_score": 90.0,
+    "procedural_share_baseline": 0.46,
+    "procedural_share_target": 0.0,
+    "weekly_hours_min": 32,
+    "weekly_hours_max": 40,
+    "mock_start_window": { "earliest": "09:15", "latest": "09:45" },
+    "away_mock_ratio": { "numerator": 2, "denominator": 3 }
+  },
+
+  "rungs": [
+    {
+      "ordinal": 0,
+      "name": "Baseline",
+      "description": "GATE DA 2026, as sat.",
+      "items_target": 0,
+      "marks_swing": 0.0,
+      "cumulative_score": 53.0,
+      "error_class_code": null,
+      "is_procedural": false
+    },
+    {
+      "ordinal": 1,
+      "name": "MSQ per-option discipline",
+      "description": "Verify every option before committing. Pure procedure, no new knowledge.",
+      "items_target": 5,
+      "marks_swing": 9.0,
+      "cumulative_score": 62.0,
+      "error_class_code": "MSQ_STOP",
+      "is_procedural": true
+    },
+    {
+      "ordinal": 2,
+      "name": "Boundary / off-by-one discipline",
+      "description": "Index, interval, inclusive/exclusive, degrees of freedom. Pure procedure.",
+      "items_target": 7,
+      "marks_swing": 12.0,
+      "cumulative_score": 74.0,
+      "error_class_code": "BOUNDARY",
+      "is_procedural": true
+    },
+    {
+      "ordinal": 3,
+      "name": "Six named concept gaps",
+      "description": "The only rung that requires new subject knowledge.",
+      "items_target": 6,
+      "marks_swing": 12.0,
+      "cumulative_score": 86.0,
+      "error_class_code": "CONCEPT",
+      "is_procedural": false
+    },
+    {
+      "ordinal": 4,
+      "name": "Close the five non-attempts",
+      "description": "Questions that were solvable and were skipped.",
+      "items_target": 5,
+      "marks_swing": 8.0,
+      "cumulative_score": 94.0,
+      "error_class_code": "NON_ATTEMPT",
+      "is_procedural": true
+    },
+    {
+      "ordinal": 5,
+      "name": "Hard tail",
+      "description": "Genuinely difficult questions. Last, and optional against a 90 target.",
+      "items_target": 3,
+      "marks_swing": 6.0,
+      "cumulative_score": 100.0,
+      "error_class_code": null,
+      "is_procedural": false
+    }
+  ],
+
+  "phases": [
+    {
+      "ordinal": 0,
+      "name": "Syllabus diff, registration, error-log rebuild",
+      "start": null,
+      "end": "2026-08-14",
+      "gate": { "kind": "registered", "label": "Registered" }
+    },
+    {
+      "ordinal": 1,
+      "name": "Concept rebuild",
+      "start": "2026-08-14",
+      "end": "2026-09-30",
+      "gate": {
+        "kind": "sectional_min",
+        "label": "≥85% on every subject sectional",
+        "threshold": 85,
+        "scope": "every_subject",
+        "by": "2026-09-30"
+      }
+    },
+    {
+      "ordinal": 2,
+      "name": "PYQ saturation",
+      "start": "2026-10-01",
+      "end": "2026-11-30",
+      "gate": {
+        "kind": "procedural_share_falling",
+        "label": "Procedural error share visibly falling",
+        "min_weeks": 4
+      }
+    },
+    {
+      "ordinal": 3,
+      "name": "Full mocks, 2–3/week at 09:30",
+      "start": "2026-12-01",
+      "end": "2027-01-15",
+      "gate": {
+        "kind": "mock_average",
+        "label": "Mock average ≥88 by 15 Dec, ≥92 by 15 Jan",
+        "checkpoints": [
+          { "threshold": 88, "by": "2026-12-15" },
+          { "threshold": 92, "by": "2027-01-15" }
+        ],
+        "window": 3
+      }
+    },
+    {
+      "ordinal": 4,
+      "name": "Taper, error-log revision, formula recall",
+      "start": "2027-01-15",
+      "end": "2027-02-06",
+      "gate": null
+    }
+  ],
+
+  "error_classes": [
+    {
+      "code": "MSQ_STOP",
+      "name": "MSQ stopping rule",
+      "is_procedural": true,
+      "description": "Committed before verifying every option.",
+      "sort_order": 1
+    },
+    {
+      "code": "BOUNDARY",
+      "name": "Boundary / off-by-one",
+      "is_procedural": true,
+      "description": "Index, interval, inclusive/exclusive, degrees of freedom.",
+      "sort_order": 2
+    },
+    {
+      "code": "MISREAD",
+      "name": "Misread question",
+      "is_procedural": true,
+      "description": "Answered a question I was not asked.",
+      "sort_order": 3
+    },
+    {
+      "code": "ARITHMETIC",
+      "name": "Arithmetic / transcription slip",
+      "is_procedural": true,
+      "description": "Method right, execution wrong.",
+      "sort_order": 4
+    },
+    {
+      "code": "TIME",
+      "name": "Time mismanagement",
+      "is_procedural": true,
+      "description": "Over-invested then abandoned.",
+      "sort_order": 5
+    },
+    {
+      "code": "CONCEPT",
+      "name": "Concept gap",
+      "is_procedural": false,
+      "description": "Genuinely did not know it. The only class that is not a process failure.",
+      "sort_order": 6
+    },
+    {
+      "code": "NON_ATTEMPT",
+      "name": "Non-attempt",
+      "is_procedural": true,
+      "description": "Skipped a question I could have solved.",
+      "sort_order": 7
+    }
+  ],
+
+  "subjects": [
+    { "code": "PROB", "name": "Probability & Statistics", "section": "SUBJECT", "sort_order": 1 },
+    { "code": "LA", "name": "Linear Algebra", "section": "SUBJECT", "sort_order": 2 },
+    { "code": "CALC", "name": "Calculus & Optimization", "section": "SUBJECT", "sort_order": 3 },
+    { "code": "PDS", "name": "Programming & Data Structures", "section": "SUBJECT", "sort_order": 4 },
+    { "code": "ALGO", "name": "Algorithms", "section": "SUBJECT", "sort_order": 5 },
+    { "code": "DBMS", "name": "Database Management & Warehousing", "section": "SUBJECT", "sort_order": 6 },
+    { "code": "ML", "name": "Machine Learning", "section": "SUBJECT", "sort_order": 7 },
+    { "code": "AI", "name": "Artificial Intelligence", "section": "SUBJECT", "sort_order": 8 },
+    { "code": "GA", "name": "General / Quantitative Aptitude", "section": "GA", "sort_order": 9 }
+  ],
+
+  "study_blocks": [
+    { "code": "morning_formula", "name": "Morning formula review", "start": "06:30", "planned_minutes": 30 },
+    { "code": "deep_work", "name": "Deep work", "start": "07:00", "planned_minutes": 150 },
+    { "code": "evening", "name": "Evening secondary practice", "start": null, "planned_minutes": 90 },
+    { "code": "recall", "name": "Books-closed recall", "start": null, "planned_minutes": 15 }
+  ],
+
+  "logging": {
+    "_note": "Two-stage capture. Stage 1 must stay under 20s; stage 2 is where the thinking goes.",
+    "capture_target_seconds": 20,
+    "full_log_target_seconds": 45,
+    "min_broke_at_step_chars": 25,
+    "min_prevention_rule_chars": 25,
+    "min_correct_reasoning_chars": 40,
+    "require_error_class": true
+  },
+
+  "calibration": {
+    "min_samples": 50,
+    "_note": "Below this the EV threshold falls back to stated confidence, flagged."
+  }
+}
