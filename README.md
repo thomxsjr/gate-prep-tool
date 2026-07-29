@@ -116,6 +116,21 @@ than a PDF print — the HTML carries per-option image references that may map
 displayed positions back to master options. The PDF print has only generic form
 XObjects.
 
+## Deploying
+
+The deployed build is a **read-only snapshot** — the real UI and data for
+revising on a phone, with writes refused rather than accepted and dropped.
+Serverless hosts have no persistent disk, so running the live API on one would
+lose every write. See [docs/DEPLOY.md](docs/DEPLOY.md).
+
+```bash
+npm run deploy:build   # snapshot + static site into dist/
+```
+
+`vercel.json` is committed and verified: import the repo in Vercel and it
+builds by reconstructing the database from the committed JSON export, so the
+deploy exercises the restore path every time.
+
 ## Quick start
 
 ```bash
