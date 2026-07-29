@@ -1,0 +1,660 @@
+{
+ "format": "gate-prep-tool/answer-key",
+ "version": 1,
+ "label": "GATE DA 2026",
+ "exam": "GATE DA",
+ "year": 2026,
+ "session": 8,
+ "entries": [
+  {
+   "paper_q_no": 1,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 1,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 2,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 1,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 3,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 1,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 4,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 1,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 5,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 1,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 6,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 2,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 7,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 2,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 8,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 2,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 9,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 2,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 10,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "GA",
+   "marks": 2,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 11,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 12,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 13,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 14,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 15,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 16,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 17,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 18,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 19,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 20,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 21,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 22,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 23,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 24,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "A;B;C",
+   "answer": "A,B,C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 25,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "A;B",
+   "answer": "A,B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 26,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "A;B",
+   "answer": "A,B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 27,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "B;D",
+   "answer": "B,D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 28,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "A;C",
+   "answer": "A,C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 29,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "8.90 to 9.10",
+   "answer": "9",
+   "tolerance": 0.1
+  },
+  {
+   "paper_q_no": 30,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "2 to 2",
+   "answer": "2",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 31,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "10 to 10",
+   "answer": "10",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 32,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "195 to 195",
+   "answer": "195",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 33,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "10 to 10",
+   "answer": "10",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 34,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "0.34 to 0.36",
+   "answer": "0.35",
+   "tolerance": 0.01
+  },
+  {
+   "paper_q_no": 35,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 1,
+   "key_raw": "1 to 1",
+   "answer": "1",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 36,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 37,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 38,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "B",
+   "answer": "B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 39,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 40,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 41,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 42,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "D",
+   "answer": "D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 43,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 44,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 45,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 46,
+   "session": 8,
+   "qtype": "MCQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "C",
+   "answer": "C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 47,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A;B",
+   "answer": "A,B",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 48,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "B;C;D",
+   "answer": "B,C,D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 49,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "B;C;D",
+   "answer": "B,C,D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 50,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "B;D",
+   "answer": "B,D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 51,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A",
+   "answer": "A",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 52,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A;D",
+   "answer": "A,D",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 53,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "A;B;C",
+   "answer": "A,B,C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 54,
+   "session": 8,
+   "qtype": "MSQ",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "B;C",
+   "answer": "B,C",
+   "tolerance": null
+  },
+  {
+   "paper_q_no": 55,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "6.90 to 7.10",
+   "answer": "7",
+   "tolerance": 0.1
+  },
+  {
+   "paper_q_no": 56,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "135 to 135",
+   "answer": "135",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 57,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "0.76 to 0.78",
+   "answer": "0.77",
+   "tolerance": 0.01
+  },
+  {
+   "paper_q_no": 58,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "8  to 8",
+   "answer": "8",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 59,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "2 to 3",
+   "answer": "2.5",
+   "tolerance": 0.5
+  },
+  {
+   "paper_q_no": 60,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "3 to 3",
+   "answer": "3",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 61,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "4 to 4",
+   "answer": "4",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 62,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "10 to 10",
+   "answer": "10",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 63,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "0 to 0",
+   "answer": "0",
+   "tolerance": 0.0
+  },
+  {
+   "paper_q_no": 64,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "0.08 to 0.12",
+   "answer": "0.1",
+   "tolerance": 0.02
+  },
+  {
+   "paper_q_no": 65,
+   "session": 8,
+   "qtype": "NAT",
+   "section": "SUBJECT",
+   "marks": 2,
+   "key_raw": "1 to 1",
+   "answer": "1",
+   "tolerance": 0.0
+  }
+ ]
+}

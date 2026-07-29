@@ -22,7 +22,8 @@
     "restore": "tsx src/scripts/restore.ts",
     "export": "tsx src/scripts/export.ts",
     "verify:durability": "tsx src/scripts/verify-durability.ts",
-    "import:response-sheet": "tsx src/scripts/import-response-sheet.ts"
+    "import:response-sheet": "tsx src/scripts/import-response-sheet.ts",
+    "apply:key": "tsx src/scripts/apply-answer-key.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
