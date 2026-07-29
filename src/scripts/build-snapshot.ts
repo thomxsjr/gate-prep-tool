@@ -30,6 +30,22 @@ import { findViolations, netFromAttemptPolicy, type AttemptDecision } from '../d
 
 export const LEAK_WINDOWS = [7, 14, 30, 90, 365] as const;
 
+/**
+ * Attempt rows are the bulk of the snapshot and most of each row is nulls and
+ * empty strings repeated per question. Dropping them here and rehydrating on
+ * the client roughly halves the file — which matters, because a phone fetches
+ * it over mobile data. `expandAttempt` in static-mode.ts is the inverse and
+ * must stay in step with this.
+ */
+export function compactAttempt(row: Record<string, unknown>): Record<string, unknown> {
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(row)) {
+    if (v === null || v === '' || v === false) continue;
+    out[k] = v;
+  }
+  return out;
+}
+
 export interface Snapshot {
   format: 'gate-prep-tool/snapshot';
   version: 1;
@@ -38,9 +54,9 @@ export interface Snapshot {
   config: unknown;
   reference: unknown;
   deck: unknown;
-  /** Every attempt. The client filters this in memory. */
+  /** Every attempt. The client filters this in memory — the triage queue and
+   *  the revisit list are derived from it rather than duplicated. */
   errors: unknown[];
-  errorsQueue: unknown[];
   leak: Record<string, unknown>;
   msqQuestions: unknown;
   msqReport: unknown;
@@ -145,8 +161,9 @@ export function buildSnapshot(db = getDb(), at = new Date()): Snapshot {
       limits: repo.triageLimits(db),
     },
     deck: buildDeck(db, at),
-    errors: repo.listAttempts({ limit: 1000 }, db),
-    errorsQueue: repo.triageQueue(db),
+    errors: repo
+      .listAttempts({ limit: 1000 }, db)
+      .map((r) => compactAttempt(r as unknown as Record<string, unknown>)),
     leak,
     msqQuestions: repo.msqQuestions(db),
     msqReport: {
@@ -179,7 +196,8 @@ export function buildSnapshot(db = getDb(), at = new Date()): Snapshot {
     pyq: {
       ...repo.pyqGrid(db),
       split: repo.attemptSplit(db),
-      revisit: repo.revisitQueue(db).slice(0, 50),
+      // Row IDs only; the client resolves them against `errors`.
+      revisitIds: repo.revisitQueue(db).slice(0, 50).map((r) => r.id),
     },
     weekly,
     weeklyMarkdown: weeklyMarkdown(weekly),

@@ -31,7 +31,6 @@ interface Snapshot {
   reference: unknown;
   deck: unknown;
   errors: Record<string, unknown>[];
-  errorsQueue: unknown;
   leak: Record<string, unknown>;
   msqQuestions: unknown;
   msqReport: unknown;
@@ -48,13 +47,35 @@ interface Snapshot {
   health: unknown;
 }
 
+/**
+ * Inverse of `compactAttempt` in build-snapshot.ts. Absent keys are restored
+ * to null/'' — the UI tests `outcome === null` and `triaged_at === null`, and
+ * `undefined` would silently fail those checks and mis-render every row.
+ */
+const ATTEMPT_DEFAULTS: Record<string, unknown> = {
+  id: 0, question_id: 0, source_label: null, source_q_no: null, paper_q_no: null,
+  qtype: 'MCQ', marks: 1, subject_id: null, subject_name: null, paraphrase: '',
+  correct_answer: null, option_labels_comparable: false, context: 'pyq',
+  attempted_at: '', my_answer: null, outcome: null, outcome_source: null,
+  marks_lost: null, time_seconds: null, confidence: null, error_class_id: null,
+  error_code: null, error_name: null, is_procedural: null, what_i_thought: '',
+  broke_at_step: '', prevention_rule: '', attempt_no: 1, is_first_attempt: false,
+  captured_at: '', triaged_at: null,
+};
+
+export function expandAttempt(row: Record<string, unknown>): Record<string, unknown> {
+  return { ...ATTEMPT_DEFAULTS, ...row };
+}
+
 let cache: Promise<Snapshot> | null = null;
 
 export function loadSnapshot(): Promise<Snapshot> {
-  cache ??= fetch('/snapshot.json').then((r) => {
-    if (!r.ok) throw new Error(`snapshot unavailable (${r.status})`);
-    return r.json() as Promise<Snapshot>;
-  });
+  cache ??= fetch('/snapshot.json')
+    .then((r) => {
+      if (!r.ok) throw new Error(`snapshot unavailable (${r.status})`);
+      return r.json() as Promise<Snapshot>;
+    })
+    .then((s) => ({ ...s, errors: s.errors.map(expandAttempt) }));
   return cache;
 }
 
@@ -104,7 +125,11 @@ export async function staticApi<T>(path: string, init?: RequestInit): Promise<T>
     case '/config': return s.config as T;
     case '/reference': return s.reference as T;
     case '/deck': return s.deck as T;
-    case '/errors/queue': return s.errorsQueue as T;
+    // Derived, not stored — the queue is exactly the untriaged rows.
+    case '/errors/queue':
+      return s.errors
+        .filter((r) => r['triaged_at'] === null)
+        .sort((a, b) => String(a['captured_at']).localeCompare(String(b['captured_at']))) as T;
     case '/errors/leak': return (s.leak[q.get('days') ?? '14'] ?? s.leak['14']) as T;
     case '/msq/questions': return s.msqQuestions as T;
     case '/msq/report': return s.msqReport as T;
@@ -113,7 +138,11 @@ export async function staticApi<T>(path: string, init?: RequestInit): Promise<T>
     case '/cards/due': return s.cardsDue as T;
     case '/mocks': return s.mocks as T;
     case '/calibration': return s.calibration as T;
-    case '/pyq': return s.pyq as T;
+    case '/pyq': {
+      const pyq = s.pyq as Record<string, unknown>;
+      const ids = new Set((pyq['revisitIds'] as number[]) ?? []);
+      return { ...pyq, revisit: s.errors.filter((r) => ids.has(r['id'] as number)) } as T;
+    }
     case '/weekly': return s.weekly as T;
     case '/sessions': return s.sessions as T;
     case '/concepts/cost': return s.conceptCost as T;
