@@ -71,3 +71,41 @@ table th {
     scroll-behavior: auto !important;
   }
 }
+
+/* ===========================================================================
+   Print. The weekly review and the formula sheet are meant to be printed, and
+   the browser's own pipeline gives a real PDF offline with no dependency.
+   =========================================================================== */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html {
+    background: #fff;
+    font-size: 10.5px;
+  }
+
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  section {
+    border-color: #999 !important;
+    background: #fff !important;
+    break-inside: avoid;
+  }
+
+  /* The procedural hue still has to read as the one signal in greyscale. */
+  .text-procedural {
+    color: #000 !important;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
