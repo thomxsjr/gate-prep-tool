@@ -14,12 +14,49 @@ runtime.
 ## Status
 
 **M0 complete** — schema, migrations, seed, backup/restore, durability proof,
-test suite. No UI beyond a health check; the command deck is M1.
+test suite, and the GATE DA 2026 response sheet imported. No UI beyond a health
+check; the command deck is M1.
 
 ```
-107 tests passing        scoring · EV · SM-2 · procedural share · calibration · ladder
+121 tests passing        scoring · EV · SM-2 · procedural share · calibration · ladder · migrations
 13/13 durability checks  write → back up → delete → restore → verify
+65 questions imported    100 marks reconciled, 5 non-attempts filed against rung 4
 ```
+
+## The 2026 baseline, as imported
+
+| | |
+|---|---|
+| Questions | 65 — GA 10, subject 55 |
+| Marks | 100 — GA 15, subject 85 (derived, reconciles exactly) |
+| Types | MCQ 33 (49 marks) · NAT 18 (29) · MSQ 14 (22) |
+| Answered | 60 |
+| Left blank | 5, all MCQ, worth **exactly 8 marks** |
+| Sitting | 15 Feb 2026, **14:30–17:30** (afternoon session) |
+
+Two things fall straight out of this:
+
+**The five non-attempts are worth exactly 8 marks**, matching rung 4's `+8.00`
+swing to the decimal. Two independent derivations agreeing is good evidence the
+marks reconstruction is right. They are seeded as rung-4 items.
+
+**Zero MSQs and zero NATs were left blank.** Leaving a free-shot question blank
+is a discipline violation the app will always flag, but it was not a 2026
+failure mode. Every blank was an MCQ.
+
+The sitting was an afternoon slot, so `started_at_0930` segmentation matters
+more than it looks: the only real-exam data point comes from a different time
+of day than the one being rehearsed.
+
+### What the response sheet cannot tell us
+
+It publishes no answer key. So 60 of 65 attempts are imported with a **null
+outcome** meaning "not yet determined" — only the 5 blanks are definitively
+known. Nothing is guessed. The whole paper sits in the triage queue, which is
+exactly where the diagnosis belongs.
+
+To go further, load the official answer key and mark each question. Until then
+the leak table and procedural share are empty by design rather than wrong.
 
 ## Quick start
 
@@ -43,8 +80,27 @@ npm run backup             # see docs/DURABILITY.md
 npm run restore
 npm run verify:durability  # the proof
 npm run db:reset -- --yes  # rebuild from config.seed.json (backs up first)
-npm run import:response-sheet -- <file.html> --dry-run
 ```
+
+## Importing a response sheet
+
+```bash
+# HTML saved from the browser (Web Page, HTML only) — the durable path
+npm run import:response-sheet -- sheet.html --label "GATE DA 2026" --dry-run
+
+# or, if all you have is a PDF printout
+pip install pypdf
+python3 tools/extract-response-sheet-pdf.py sheet.pdf -o data/import/gate-da-2026-response.json
+npm run import:response-sheet -- data/import/gate-da-2026-response.json
+```
+
+Marks are not printed on a response sheet. They are derived from the published
+GATE DA structure — 1-mark questions precede 2-mark ones within each section —
+and the extractor **refuses to write** unless the derived total is exactly 100
+with GA at 15. A paper with a different structure fails loudly instead of
+seeding bad marks.
+
+Neither path touches the network, and neither stores question or option text.
 
 ## Everything configurable lives in one file
 

@@ -1,0 +1,599 @@
+{
+ "format": "gate-prep-tool/response-sheet",
+ "version": 1,
+ "label": "GATE DA 2026",
+ "exam": "GATE DA",
+ "year": 2026,
+ "source_meta": {
+  "candidate_id": "D A26S87219009",
+  "test_date": "15/02/2026",
+  "test_time": "2:30 PM - 5:30 PM"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "qtype": "MCQ",
+   "external_ref": "22848210019",
+   "status": "NotAnswered",
+   "given": null,
+   "section": "GA",
+   "marks": 1
+  },
+  {
+   "number": 2,
+   "qtype": "MCQ",
+   "external_ref": "22848210013",
+   "status": "Answered",
+   "given": "B",
+   "section": "GA",
+   "marks": 1
+  },
+  {
+   "number": 3,
+   "qtype": "MCQ",
+   "external_ref": "22848210014",
+   "status": "Answered",
+   "given": "A",
+   "section": "GA",
+   "marks": 1
+  },
+  {
+   "number": 4,
+   "qtype": "MCQ",
+   "external_ref": "22848210017",
+   "status": "Answered",
+   "given": "A",
+   "section": "GA",
+   "marks": 1
+  },
+  {
+   "number": 5,
+   "qtype": "MCQ",
+   "external_ref": "22848210012",
+   "status": "Answered",
+   "given": "A",
+   "section": "GA",
+   "marks": 1
+  },
+  {
+   "number": 6,
+   "qtype": "MCQ",
+   "external_ref": "22848210015",
+   "status": "Answered",
+   "given": "C",
+   "section": "GA",
+   "marks": 2
+  },
+  {
+   "number": 7,
+   "qtype": "MCQ",
+   "external_ref": "22848210020",
+   "status": "NotAnswered",
+   "given": null,
+   "section": "GA",
+   "marks": 2
+  },
+  {
+   "number": 8,
+   "qtype": "MCQ",
+   "external_ref": "22848210011",
+   "status": "NotAnswered",
+   "given": null,
+   "section": "GA",
+   "marks": 2
+  },
+  {
+   "number": 9,
+   "qtype": "MCQ",
+   "external_ref": "22848210018",
+   "status": "Answered",
+   "given": "C",
+   "section": "GA",
+   "marks": 2
+  },
+  {
+   "number": 10,
+   "qtype": "MCQ",
+   "external_ref": "22848210016",
+   "status": "Answered",
+   "given": "C",
+   "section": "GA",
+   "marks": 2
+  },
+  {
+   "number": 1,
+   "qtype": "MCQ",
+   "external_ref": "22848210028",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 2,
+   "qtype": "MCQ",
+   "external_ref": "22848210026",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 3,
+   "qtype": "MCQ",
+   "external_ref": "22848210024",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 4,
+   "qtype": "MCQ",
+   "external_ref": "22848210022",
+   "status": "Answered",
+   "given": "C",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 5,
+   "qtype": "NAT",
+   "external_ref": "22848210043",
+   "status": "Answered",
+   "given": "4",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 6,
+   "qtype": "NAT",
+   "external_ref": "22848210040",
+   "status": "Answered",
+   "given": "2",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 7,
+   "qtype": "MCQ",
+   "external_ref": "22848210029",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 8,
+   "qtype": "NAT",
+   "external_ref": "22848210039",
+   "status": "Answered",
+   "given": "9",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 9,
+   "qtype": "MCQ",
+   "external_ref": "22848210027",
+   "status": "Answered",
+   "given": "A",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 10,
+   "qtype": "MCQ",
+   "external_ref": "22848210023",
+   "status": "Answered",
+   "given": "A",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 11,
+   "qtype": "MSQ",
+   "external_ref": "22848210033",
+   "status": "Answered",
+   "given": "A",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 12,
+   "qtype": "MCQ",
+   "external_ref": "22848210031",
+   "status": "NotAnswered",
+   "given": null,
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 13,
+   "qtype": "MCQ",
+   "external_ref": "22848210021",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 14,
+   "qtype": "MCQ",
+   "external_ref": "22848210025",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 15,
+   "qtype": "NAT",
+   "external_ref": "22848210044",
+   "status": "Answered",
+   "given": "0.35",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 16,
+   "qtype": "MSQ",
+   "external_ref": "22848210034",
+   "status": "Answered",
+   "given": "B,C,D",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 17,
+   "qtype": "MCQ",
+   "external_ref": "22848210032",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 18,
+   "qtype": "MSQ",
+   "external_ref": "22848210036",
+   "status": "Answered",
+   "given": "B,C",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 19,
+   "qtype": "MSQ",
+   "external_ref": "22848210038",
+   "status": "Answered",
+   "given": "B,C",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 20,
+   "qtype": "MSQ",
+   "external_ref": "22848210035",
+   "status": "Answered",
+   "given": "A,B",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 21,
+   "qtype": "NAT",
+   "external_ref": "22848210042",
+   "status": "Answered",
+   "given": "195",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 22,
+   "qtype": "MSQ",
+   "external_ref": "22848210037",
+   "status": "Answered",
+   "given": "A",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 23,
+   "qtype": "MCQ",
+   "external_ref": "22848210030",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 24,
+   "qtype": "NAT",
+   "external_ref": "22848210045",
+   "status": "Answered",
+   "given": "1",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 25,
+   "qtype": "NAT",
+   "external_ref": "22848210041",
+   "status": "Answered",
+   "given": "9",
+   "section": "SUBJECT",
+   "marks": 1
+  },
+  {
+   "number": 26,
+   "qtype": "NAT",
+   "external_ref": "22848210070",
+   "status": "Answered",
+   "given": "3",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 27,
+   "qtype": "MCQ",
+   "external_ref": "22848210053",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 28,
+   "qtype": "MCQ",
+   "external_ref": "22848210052",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 29,
+   "qtype": "MSQ",
+   "external_ref": "22848210064",
+   "status": "Answered",
+   "given": "B,D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 30,
+   "qtype": "NAT",
+   "external_ref": "22848210072",
+   "status": "Answered",
+   "given": "1",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 31,
+   "qtype": "NAT",
+   "external_ref": "22848210075",
+   "status": "Answered",
+   "given": "1",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 32,
+   "qtype": "NAT",
+   "external_ref": "22848210066",
+   "status": "Answered",
+   "given": "135",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 33,
+   "qtype": "MCQ",
+   "external_ref": "22848210050",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 34,
+   "qtype": "MSQ",
+   "external_ref": "22848210062",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 35,
+   "qtype": "MSQ",
+   "external_ref": "22848210059",
+   "status": "Answered",
+   "given": "A,B,C",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 36,
+   "qtype": "MSQ",
+   "external_ref": "22848210063",
+   "status": "Answered",
+   "given": "B,C",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 37,
+   "qtype": "MSQ",
+   "external_ref": "22848210061",
+   "status": "Answered",
+   "given": "A",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 38,
+   "qtype": "MSQ",
+   "external_ref": "22848210060",
+   "status": "Answered",
+   "given": "A,D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 39,
+   "qtype": "NAT",
+   "external_ref": "22848210074",
+   "status": "Answered",
+   "given": "0.5",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 40,
+   "qtype": "MCQ",
+   "external_ref": "22848210056",
+   "status": "NotAnswered",
+   "given": null,
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 41,
+   "qtype": "MCQ",
+   "external_ref": "22848210054",
+   "status": "Answered",
+   "given": "A",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 42,
+   "qtype": "NAT",
+   "external_ref": "22848210067",
+   "status": "Answered",
+   "given": "0.77",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 43,
+   "qtype": "NAT",
+   "external_ref": "22848210068",
+   "status": "Answered",
+   "given": "7",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 44,
+   "qtype": "MCQ",
+   "external_ref": "22848210049",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 45,
+   "qtype": "NAT",
+   "external_ref": "22848210073",
+   "status": "Answered",
+   "given": "0",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 46,
+   "qtype": "MCQ",
+   "external_ref": "22848210055",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 47,
+   "qtype": "NAT",
+   "external_ref": "22848210069",
+   "status": "Answered",
+   "given": "3",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 48,
+   "qtype": "MSQ",
+   "external_ref": "22848210057",
+   "status": "Answered",
+   "given": "A,B,C",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 49,
+   "qtype": "MCQ",
+   "external_ref": "22848210046",
+   "status": "Answered",
+   "given": "A",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 50,
+   "qtype": "NAT",
+   "external_ref": "22848210071",
+   "status": "Answered",
+   "given": "3",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 51,
+   "qtype": "MCQ",
+   "external_ref": "22848210047",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 52,
+   "qtype": "NAT",
+   "external_ref": "22848210065",
+   "status": "Answered",
+   "given": "0",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 53,
+   "qtype": "MSQ",
+   "external_ref": "22848210058",
+   "status": "Answered",
+   "given": "B,C",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 54,
+   "qtype": "MCQ",
+   "external_ref": "22848210051",
+   "status": "Answered",
+   "given": "B",
+   "section": "SUBJECT",
+   "marks": 2
+  },
+  {
+   "number": 55,
+   "qtype": "MCQ",
+   "external_ref": "22848210048",
+   "status": "Answered",
+   "given": "D",
+   "section": "SUBJECT",
+   "marks": 2
+  }
+ ]
+}

@@ -50,27 +50,51 @@ export function appliedVersions(db: DB): Set<number> {
   return new Set(rows.map((r) => r.version));
 }
 
-export function migrate(db: DB = getDb(), quiet = false): number {
+/** `upTo` applies migrations only through that version — used by tests to
+ *  reproduce an older schema and step it forward. */
+export function migrate(db: DB = getDb(), quiet = false, upTo?: number): number {
   ensureDirs();
   ensureMigrationsTable(db);
   const done = appliedVersions(db);
-  const pending = loadMigrations().filter((m) => !done.has(m.version));
+  const pending = loadMigrations().filter(
+    (m) => !done.has(m.version) && (upTo === undefined || m.version <= upTo),
+  );
 
   if (pending.length === 0) {
     if (!quiet) console.log('migrate: up to date');
     return 0;
   }
 
-  for (const m of pending) {
-    const run = db.transaction(() => {
-      db.exec(m.sql);
-      db.prepare(
-        'INSERT INTO schema_migrations (version, name, applied_at) VALUES (?, ?, ?)',
-      ).run(m.version, m.name, new Date().toISOString());
-    });
-    run();
-    append({ op: 'migrate', table: 'schema_migrations', id: m.version, note: m.name });
-    if (!quiet) console.log(`migrate: applied ${String(m.version).padStart(3, '0')}_${m.name}`);
+  // Foreign keys OFF for the duration, as SQLite's own table-rebuild procedure
+  // requires, and it must be set OUTSIDE the transaction — the pragma is a
+  // no-op inside one. This is not cosmetic: a rebuild that drops a parent
+  // table with enforcement ON fires ON DELETE CASCADE and silently destroys
+  // every child row. Integrity is re-checked below instead of assumed.
+  const fkWasOn = (db.pragma('foreign_keys', { simple: true }) as number) === 1;
+  db.pragma('foreign_keys = OFF');
+
+  try {
+    for (const m of pending) {
+      const run = db.transaction(() => {
+        db.exec(m.sql);
+        db.prepare(
+          'INSERT INTO schema_migrations (version, name, applied_at) VALUES (?, ?, ?)',
+        ).run(m.version, m.name, new Date().toISOString());
+      });
+      run();
+      append({ op: 'migrate', table: 'schema_migrations', id: m.version, note: m.name });
+      if (!quiet) console.log(`migrate: applied ${String(m.version).padStart(3, '0')}_${m.name}`);
+    }
+  } finally {
+    if (fkWasOn) db.pragma('foreign_keys = ON');
+  }
+
+  const violations = db.pragma('foreign_key_check') as unknown[];
+  if (violations.length > 0) {
+    throw new Error(
+      `migration left ${violations.length} foreign-key violation(s): ` +
+        JSON.stringify(violations.slice(0, 5)),
+    );
   }
 
   return pending.length;
