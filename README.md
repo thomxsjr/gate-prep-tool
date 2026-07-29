@@ -13,16 +13,29 @@ runtime.
 
 ## Status
 
-**M0 complete** — schema, migrations, seed, backup/restore, durability proof,
-test suite, and the GATE DA 2026 response sheet imported. No UI beyond a health
-check; the command deck is M1.
+**Complete.** M0 through M9.
 
 ```
-159 tests passing        scoring · EV · SM-2 · procedural share · calibration
-                         ladder · option-shuffle · migrations · answer key
+223 tests passing        scoring · EV · SM-2 · procedural share · calibration
+                         ladder · option-shuffle · drills · API · migrations · key
 13/13 durability checks  write → back up → delete → restore → verify
 65 questions imported    key applied; 37 of 100 marks determinable, 17.00 scored
 ```
+
+| Module | What it does |
+|---|---|
+| **M1** Command deck | The Ladder, procedural share, phase and gate status, countdown, mock average, weekly hours, Today |
+| **M2** Error log | Two-stage capture and triage, leak table, CSV import, morning review |
+| **M3** MSQ trainer | Per-option verdicts with justification-gated submit; near-miss count |
+| **M4** Boundary drills | 12 deterministic seeded templates, rapid fire, auto error-log entries |
+| **M5** Cards + formula | SM-2 with type-specific prompts; printable anchor sheet with recall test |
+| **M6** Mocks | Import, start-time and environment discipline, triage that blocks the score |
+| **M7** Calibration | Curve vs the diagonal, signed bias, discipline violations, net attempt policy |
+| **M8** PYQ tracker | Coverage grid, revisit queue, first-attempt vs re-attempt kept apart |
+| **M9** Weekly review | One page, next target chosen by damage, Markdown + print-to-PDF |
+
+Keyboard-first throughout: `⌘K` command palette, `⌘↵` submits every form,
+arrow/J-K navigation, and the morning review and card review need no mouse.
 
 ## The 2026 baseline, as imported
 
