@@ -70,6 +70,23 @@ Current status: **13/13 checks pass.**
 6. compare    row count identical · content hash identical · content verbatim
 ```
 
+## Test isolation
+
+`tests/setup.ts` redirects `GATE_DATA_DIR` to a temp directory before any test
+imports `src/db/index.ts`. Without it, every test that seeds or captures
+appends to the real journal from a throwaway database.
+
+This is not hypothetical: it happened. A test run wrote thousands of entries
+describing attempts that never occurred, and the journal reached 22,558
+entries against ~120 real writes — 6,048 question inserts where the truth was
+65. The database and the canonical export were never affected, but a rebuild
+from the journal would have produced fabricated data. The journal has since
+been reconstructed from the real writes only, and the setup file prevents a
+recurrence.
+
+If you add a script that writes outside the test suite, point it at a temp
+`GATE_DATA_DIR` too unless the write is genuinely yours to keep.
+
 ## Recovering from nothing
 
 If `gate.db` is gone and you have a git clone:
