@@ -1,11 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import { resolve } from 'node:path';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwindcss()],
   root: 'src/web',
-  publicDir: false,
+  // The static build serves a snapshot from public/; the local build has a
+  // real API and needs no public assets.
+  publicDir: mode === 'static' ? resolve(import.meta.dirname, 'public') : false,
+  define: {
+    'import.meta.env.VITE_STATIC': JSON.stringify(mode === 'static' ? '1' : '0'),
+  },
   build: {
     outDir: '../../dist',
     emptyOutDir: true,
@@ -18,4 +24,4 @@ export default defineConfig({
       '/api': { target: `http://localhost:${process.env.PORT ?? 5178}`, changeOrigin: true },
     },
   },
-});
+}));

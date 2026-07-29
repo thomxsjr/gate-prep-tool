@@ -1,10 +1,15 @@
 /** Client plumbing: fetch, routing, keyboard, formatting. */
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { IS_STATIC, staticApi } from './static-mode.ts';
 
 // --- data ------------------------------------------------------------------
 
 export async function api<T>(path: string, init?: RequestInit): Promise<T> {
+  // The deployed build has no server. Reads come from a build-time snapshot;
+  // writes throw rather than being accepted and silently dropped.
+  if (IS_STATIC) return staticApi<T>(path, init);
+
   const res = await fetch(`/api${path}`, {
     ...init,
     headers: { 'content-type': 'application/json', ...(init?.headers ?? {}) },

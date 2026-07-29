@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useApi, useHotkeys, useRoute } from './lib.ts';
+import { IS_STATIC, snapshotGeneratedAt } from './static-mode.ts';
 import { Deck } from './pages/Deck.tsx';
 import { Errors } from './pages/Errors.tsx';
 import { Review } from './pages/Review.tsx';
@@ -52,7 +53,8 @@ export function App(): React.ReactElement {
       <Nav current={page} navigate={navigate} onPalette={() => setPaletteOpen(true)} />
 
       <main className="mx-auto max-w-[1500px] px-4 pt-3 pb-10">
-        {health.error && (
+        {IS_STATIC && <SnapshotBanner />}
+        {!IS_STATIC && health.error && (
           <p className="mb-3 border border-procedural bg-panel p-3 text-sm text-procedural">
             API unreachable: {health.error}. Start it with <code>npm run api</code>.
           </p>
@@ -62,6 +64,25 @@ export function App(): React.ReactElement {
 
       {paletteOpen && <Palette navigate={navigate} close={() => setPaletteOpen(false)} />}
     </div>
+  );
+}
+
+function SnapshotBanner(): React.ReactElement {
+  const [at, setAt] = useState<string | null>(null);
+  useEffect(() => {
+    void snapshotGeneratedAt().then(setAt).catch(() => setAt(null));
+  }, []);
+
+  return (
+    <p className="mb-3 border border-rule bg-panel px-3 py-2 text-[12px] leading-relaxed print:hidden">
+      <strong className="tracking-[0.14em] uppercase">Read-only snapshot</strong>
+      {at && <span className="num text-ink-muted"> · frozen {at.slice(0, 16).replace('T', ' ')} UTC</span>}
+      <span className="text-ink-muted">
+        {' '}— for revising on a phone. Capture, triage, card review and mock entry live on the
+        machine running the app, where writes are journalled and provably restorable. Boundary
+        drills work here in full; only their recording does not.
+      </span>
+    </p>
   );
 }
 

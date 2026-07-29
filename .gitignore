@@ -31,3 +31,4 @@ coverage/
 
 # Locally-owned PDFs referenced by questions.local_pdf_path are never committed.
 data/pdf/
+public/

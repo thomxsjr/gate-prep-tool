@@ -23,7 +23,10 @@
     "export": "tsx src/scripts/export.ts",
     "verify:durability": "tsx src/scripts/verify-durability.ts",
     "import:response-sheet": "tsx src/scripts/import-response-sheet.ts",
-    "apply:key": "tsx src/scripts/apply-answer-key.ts"
+    "apply:key": "tsx src/scripts/apply-answer-key.ts",
+    "build:snapshot": "tsx src/scripts/build-snapshot.ts",
+    "deploy:build": "npm run build:snapshot && vite build --mode static",
+    "deploy:ci": "tsx src/db/migrate.ts && tsx src/scripts/restore.ts --force && npm run build:snapshot && vite build --mode static"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",

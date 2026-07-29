@@ -30,23 +30,35 @@ export function Ladder({ baselineScore, targetScore, rungs, recoverableScore }: 
   const top = working.at(-1)?.cumulativeScore ?? 100;
   const span = top - baselineScore;
 
-  return (
-    <div className="flex h-full gap-3">
-      <Scale baselineScore={baselineScore} top={top} rungs={working} targetScore={targetScore} />
-
-      <div className="flex min-w-0 flex-1 flex-col-reverse">
-        {working.map((r) => (
-          <Rung key={r.ordinal} rung={r} heightPct={(r.marksSwing / span) * 100} />
-        ))}
+  const recoverable = (
+    <>
+      <div className="text-[10px] tracking-[0.14em] text-ink-muted uppercase">Recoverable</div>
+      <div className="num text-3xl leading-none font-medium">{marks(recoverableScore)}</div>
+      <div className="mt-1 text-[10px] leading-snug text-ink-muted">
+        on the 2026 paper, if every filled rung held. Not a forecast.
       </div>
+    </>
+  );
 
-      <div className="flex w-28 shrink-0 flex-col justify-end pb-1 text-right">
-        <div className="text-[10px] tracking-[0.14em] text-ink-muted uppercase">Recoverable</div>
-        <div className="num text-3xl leading-none font-medium">{marks(recoverableScore)}</div>
-        <div className="mt-1 text-[10px] leading-snug text-ink-muted">
-          on the 2026 paper, if every filled rung held. Not a forecast.
+  return (
+    <div className="flex h-full flex-col">
+      <div className="flex min-h-0 flex-1 gap-2 sm:gap-3">
+        <Scale baselineScore={baselineScore} top={top} rungs={working} targetScore={targetScore} />
+
+        <div className="flex min-w-0 flex-1 flex-col-reverse">
+          {working.map((r) => (
+            <Rung key={r.ordinal} rung={r} heightPct={(r.marksSwing / span) * 100} />
+          ))}
+        </div>
+
+        {/* On a phone this column would squeeze the rung labels off-screen, so
+            it moves below the ladder instead of competing with it. */}
+        <div className="hidden w-28 shrink-0 flex-col justify-end pb-1 text-right lg:flex">
+          {recoverable}
         </div>
       </div>
+
+      <div className="mt-2 border-t border-rule pt-2 lg:hidden">{recoverable}</div>
     </div>
   );
 }
@@ -109,7 +121,7 @@ function Rung({ rung, heightPct }: { rung: RungFillDto; heightPct: number }): Re
           would be the same lie as reporting a share of 0% for an empty log.
           Unknown is hatched neutral. */}
       <div
-        className={`relative w-16 shrink-0 overflow-hidden border-r border-rule ${
+        className={`relative w-10 shrink-0 overflow-hidden border-r border-rule sm:w-16 ${
           rung.isProcedural && !rung.insufficientData ? 'bg-procedural' : 'bg-ground'
         }`}
       >
@@ -131,8 +143,10 @@ function Rung({ rung, heightPct }: { rung: RungFillDto; heightPct: number }): Re
 
       <div className="flex min-w-0 flex-1 flex-col justify-center px-3 py-1">
         <div className="flex items-baseline gap-2">
-          <span className="num text-[11px] text-ink-muted">{rung.ordinal}</span>
-          <span className="truncate text-[13px] leading-tight font-medium">{rung.name}</span>
+          <span className="num shrink-0 text-[11px] text-ink-muted">{rung.ordinal}</span>
+          <span className="min-w-0 truncate text-[12px] leading-tight font-medium sm:text-[13px]">
+            {rung.name}
+          </span>
           <span className="num ml-auto shrink-0 text-[11px] text-ink-muted">
             +{marks(rung.marksSwing)}
           </span>
